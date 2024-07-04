@@ -121,6 +121,7 @@ function detalhes(){
                   <h5 class="card-title">${rs.autor}</h5>
                   <p class="card-text">${rs.sinopse}</p>
                   <p class="card-text precoatual">R$ ${rs.precodesconto < 1 ? rs.precoatual : rs.precodesconto}</p>
+                  <br>
                   <a href="carrinho.html?idlivro=${rs.idtitulo} class="carrinho"> 
                   <img src=img/card.png widht=40 heigt=40"> incluir no carrinho</a>
                 </div>

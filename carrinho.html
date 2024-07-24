@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body onload="carregarCarrinho()">
 
     <!-- Inicio da barra de navegação -->
     <nav class="navbar navbar-expand-lg" data-bs-theme="dark" style="background-color: #7b1fa2 !important;">
@@ -27,7 +27,7 @@
             </ul>
             <form onsubmit="return false;" class="d-flex col-md-6" role="search">
               <input class="form-control" type="search" placeholder="Pesquisar livros" aria-label="Search">
-              <button class="btn btn-outline-success">Buscar</button>
+              <button class="btn btn-outline-success" onclick="buscar()">Buscar</button>
             </form>
             <div class="d-flex">
               <img src="img/login.png" class="fotouser" alt="foto do usuario">
@@ -78,7 +78,7 @@
     <!--************************** inicio lista de livros ****************-->
 
     <div class="container">
-      <h2>Livros em destaque </h2>
+      <h2>Seu carrinho </h2>
       <div class="conteudo">
 
       </div>

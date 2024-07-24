@@ -191,3 +191,31 @@ function buscar(){
 
 
 }
+
+function carregarCarrinho(){
+  let id_url = window.location.search.split('=');
+    const conteudo = document.querySelector(".conteudo");
+
+    fetch("http://127.0.0.1:4002/api/v1/carrinho/listar"+id_url[1])
+    .then((res)=>res.json())
+    .then((dados)=>{
+        dados.payload.map((rs)=>{
+          document.querySelector("h2").innerHTML = "Detalhes do livro: " +rs.nometitulo
+          let card = `<div class="card" style="width: 18rem;">
+          <img src=${rs.foto1} class="card-img-top" alt="...">
+          <div class="card-body">
+          <h3>${rs.nometitulo}</h3>
+            <p class="card-text">Autor:${rs.autor} </p>
+            <div class="containerflex">
+            <p class="card-text">De R$ ${rs.precoatual} </p>
+            <p class="card-text"> Por R$ ${rs.precodesconto<1 ? rs.precoatual : rs.precodesconto}</p>
+            </div>
+            <a class="btn btn-dark" href="detalhes.html?idlivro=${rs.idtitulos}">Saiba mais</a>
+          </div>
+        </div>`;
+
+            conteudo.innerHTML += card;
+        })
+    })
+    .catch((error)=>console.error(`erro na api ${error}`))
+}
